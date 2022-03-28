@@ -45,17 +45,17 @@
 
 	      <div class="container">
 
-	        <div class="col-md-6" v-for="(movie,index) in movies">
-	            <div class="thumbnail">
+	        <div class="col-md-6" >
+	            <div class="thumbnail" v-for="(movie,index) in movies" :keys"index">
 
-						<img class="poster" :src="movies[index].poster[0]"/>
-						<div class="imageInfo">{{movies[index].posterIndex}}</div>
+						<a v-on:click="posterClick(movie, index)"/> <img class="poster" :src="movies.posters[movie.posterindex]"/> </a>
+						<div class="imageInfo">Poster{{movie.posterindex +1}} of {{movie.posters.length}}</div>
 
-						<p class="title">{{movies[index].title}} {{movies[index].country}}</p>
-						<p class="score"><i class="fa fa-star" aria-hidden="true"></i> {{movies[index].iscore}} </p>
-						<p class="runtime">{{movies[index].runtime}}</p>
-						<p class="released">{{movies[index].released}} | Rated: {{movies[index].rating}}</p>
-						<p class="websites">Websites: {{movies[index].imdb}}| <a>{{movies[index].website}}</a></p>
+						<p class="title">{{movie.title}} ({{movie.country}})</p>
+						<p class="score"><i class="fa fa-star" aria-hidden="true"></i> {{movie.score}} </p>
+						<p class="runtime">Runtime:{{movie | timeText}}</p>
+						<p class="released">Released: {{movie | makeTextDate}} | Rated:{{movie.rating}}</p>
+						<p class="websites">Websites: <a :href="movie.imbd"><h1>IMDB</h1></a> | <a :href="movie.website">Home</a></p>
 
 			            <div class="social">
 			              <p class="likes"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{movies[index].likes}}</p>
