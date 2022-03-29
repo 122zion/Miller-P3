@@ -58,7 +58,7 @@
 						<p class="websites">Websites: <a :href="movie.imbd"><h1>IMDB</h1></a> | <a :href="movie.website">Home</a></p>
 
 			            <div class="social">
-			              <p class="likes"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{movies[index].likes}}</p>
+			              <a v-on:click="addLike"<p class="likes"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{movies[index].likes}}</p>
 			              <p class="dislikes"><i class="fa fa-thumbs-down" aria-hidden="true"></i> {{movies[index].dislikes}}</p>
 			            </div>
 	            </div>
