@@ -34,13 +34,23 @@ const vue_app = Vue.createApp({
             // This holds your movies.json data.
             movies: [],
             /* ADD ADDITIONAL VARIABLES FOR STEP 3 HERE */
-            title: 'IDMB + Zionss Top 7 Movies',
+            title: 'IDMB + Zions Top 8 Movies',
             owner: 'Zion',
             github: 'https://122zion.github.io/Miller-P3/'
       }
     },
       methods: {
             /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
+            addLike: function (movie){
+              movie.likes ++;
+              console.log("movie likes: " + movie.likes);
+
+            },
+            decreaseLike: function (movie){
+              movie.dislikes --;
+              console.log("movie dislikes:" + movie.dislikes);
+            },
+
       }
 })
 
