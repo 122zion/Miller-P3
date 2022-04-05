@@ -51,6 +51,20 @@ const vue_app = Vue.createApp({
               console.log("movie dislikes:" + movie.dislikes);
             },
 
+            posterClick: function(movie, index){
+              var moviePostersLength = movie.posters.length;
+
+              if(movie.posterindex < 0){
+                movie.posterindex += moviePostersLength;
+              }
+              if (movie.posterindex < moviePostersLength - 1){
+                movie.posterindex ++;
+              }else {
+                movie.posterindex = 0;
+              }
+              console.log("index:"+movie.posterindex + "movie posters:" + moviePostersLength);
+            }
+
       }
 })
 
