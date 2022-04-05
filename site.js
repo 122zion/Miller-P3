@@ -54,18 +54,17 @@ const vue_app = Vue.createApp({
             posterClick: function(movie, index){
               var moviePostersLength = movie.posters.length;
 
-              if(movie.posterindex < 0){
-                movie.posterindex += moviePostersLength;
+              if(movie.postersindex < 0){
+                movie.postersindex += moviePostersLength;
               }
-              if (movie.posterindex < moviePostersLength - 1){
-                movie.posterindex ++;
+              if (movie.postersindex < moviePostersLength - 1){
+                movie.postersindex ++;
               }else {
-                movie.posterindex = 0;
+                movie.postesrindex = 0;
               }
-              console.log("index:"+movie.posterindex + "movie posters:" + moviePostersLength);
+              console.log("index:"+movie.postersindex + "movie posters:" + moviePostersLength);
             }
-
-      }
+      },
 })
 
 vue_app.mount("#vue_app")
