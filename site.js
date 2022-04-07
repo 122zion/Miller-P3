@@ -41,30 +41,60 @@ const vue_app = Vue.createApp({
     },
       methods: {
             /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
-            addLike: function (movie){
-              movie.likes ++;
-              console.log("movie likes: " + movie.likes);
+            posterClick(index){
 
-            },
-            decreaseLike: function (movie){
-              movie.dislikes --;
-              console.log("movie dislikes:" + movie.dislikes);
-            },
-
-            posterClick: function(movie, index){
-              var moviePostersLength = movie.posters.length;
-
-              if(movie.postersindex < 0){
-                movie.postersindex += moviePostersLength;
-              }
-              if (movie.postersindex < moviePostersLength - 1){
-                movie.postersindex ++;
+              if (this.movies[index].posterindex < this.movies[index].posters.length-1){
+                this.movies[index].posterindex ++;
               }else {
-                movie.postesrindex = 0;
+                this.movies[index].posterindex = 0;
               }
-              console.log("index:"+movie.postersindex + "movie posters:" + moviePostersLength);
+
+            },
+            getMonthText(dateArray){
+              let months = ["January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+              var month;
+              switch(dateArray[1]){
+                case 1:
+                month = months[0]
+                break
+                case 2:
+                month=months[1]
+                break
+                case 3:
+                month=months[2]
+                break
+                case 4:
+                month=months[3]
+                break
+                case 5:
+                month=months[4]
+                break
+                case 6:
+                month=months[5]
+                break
+                case 7:
+                month=months[6]
+                break
+                case 8:
+                month=months[7]
+                break
+                case 9:
+                month=months[8]
+                break
+                case 10:
+                month = months[9]
+                break
+                case 11:
+                month = months[10]
+                break
+                case 12:
+                month=months[11]
+                break
+              }
+              return month + " " + dateArray[2] + ", " + dateArray[0]
             }
-      },
+      }
+
 })
 
 vue_app.mount("#vue_app")
